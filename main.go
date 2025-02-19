@@ -23,7 +23,7 @@ func getLogTime(w http.ResponseWriter, r *http.Request){
 }
 
 func formattedTimeEntry() string {
-	time := time.Now().Format("02-Jan-2006 15:04:05")
+	time := time.Now().Format("02-Jan-2006 15:04:05\n")
 	return time
 }
 
