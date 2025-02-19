@@ -28,20 +28,30 @@ func formattedTimeEntry() string {
 }
 
 func createFile(f string, time string) error {
+	_, err := os.Stat(f)
+	fileExists := err == nil
+
+
 	file, err := os.OpenFile(f, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
 	if err != nil {
+		
 		log.Fatal(err)
 	}
 	defer file.Close()
+
+	if !fileExists {
+		fmt.Println("file created")
+	}
 	
 	data := time
 	_, err = file.WriteString(data)
 
 	if err != nil {
+		
 		return err
 	}
 
-	fmt.Println("file created")
+	
 	return nil
 }
 
