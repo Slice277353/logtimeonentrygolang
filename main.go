@@ -17,6 +17,7 @@ func getRoot(w http.ResponseWriter, r *http.Request){
 }
 
 func getLogTime(w http.ResponseWriter, r *http.Request){
+	fmt.Printf("got /log request\n")
 	result := logTimeToServer()
 	io.WriteString(w, result)
 }
